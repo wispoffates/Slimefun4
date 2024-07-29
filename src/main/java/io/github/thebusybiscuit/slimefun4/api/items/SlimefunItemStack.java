@@ -159,7 +159,7 @@ public class SlimefunItemStack extends ItemStack {
                 potionMeta.addCustomEffect(effect, true);
 
                 if (effect.getType().equals(PotionEffectType.SATURATION)) {
-                    im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+                    im.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
                 }
             }
         });
@@ -307,7 +307,8 @@ public class SlimefunItemStack extends ItemStack {
 
     @Override
     public ItemStack clone() {
-        return new SlimefunItemStack(id, this);
+        ItemStack stack = super.clone();
+        return new SlimefunItemStack(id, stack);
     }
 
     @Override

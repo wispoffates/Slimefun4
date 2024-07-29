@@ -27,7 +27,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.items.RadioactiveItem;
 import io.github.thebusybiscuit.slimefun4.implementation.items.armor.SlimefunArmorPiece;
 import io.github.thebusybiscuit.slimefun4.test.TestUtilities;
 import io.github.thebusybiscuit.slimefun4.test.mocks.MockHazmatSuit;
-
+import net.bytebuddy.agent.ByteBuddyAgent;
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 
@@ -40,6 +40,7 @@ class TestArmorTask {
     public static void load() {
         server = MockBukkit.mock();
         plugin = MockBukkit.load(Slimefun.class);
+        ByteBuddyAgent.install();
     }
 
     @AfterAll

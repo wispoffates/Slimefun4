@@ -51,12 +51,13 @@ public class EnchantmentRune extends SimpleSlimefunItem<ItemDropHandler> {
 
         for (Material mat : Material.values()) {
             List<Enchantment> enchantments = new ArrayList<>();
-
+            if(mat.isLegacy()) {
+                continue;
+            }
             for (Enchantment enchantment : Enchantment.values()) {
                 if (enchantment.equals(Enchantment.BINDING_CURSE) || enchantment.equals(Enchantment.VANISHING_CURSE)) {
                     continue;
                 }
-
                 if (enchantment.canEnchantItem(new ItemStack(mat))) {
                     enchantments.add(enchantment);
                 }
@@ -140,7 +141,7 @@ public class EnchantmentRune extends SimpleSlimefunItem<ItemDropHandler> {
                     // Being sure entities are still valid and not picked up or whatsoever.
                     if (rune.isValid() && item.isValid() && itemStack.getAmount() == 1) {
 
-                        l.getWorld().spawnParticle(Particle.CRIT_MAGIC, l, 1);
+                        l.getWorld().spawnParticle(Particle.ENCHANTED_HIT, l, 1);
                         SoundEffect.ENCHANTMENT_RUNE_ADD_ENCHANT_SOUND.playAt(l, SoundCategory.PLAYERS);
 
                         item.remove();

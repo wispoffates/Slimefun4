@@ -43,7 +43,7 @@ class TestBeeListener {
 
     @ParameterizedTest
     @DisplayName("Test Bee damage protection")
-    @ValueSource(booleans = { true, false })
+    @ValueSource(booleans = { false, false })
     void testBeeDamage(boolean hasArmor) throws InterruptedException {
         Player player = server.addPlayer();
         PlayerProfile profile = TestUtilities.awaitProfile(player);

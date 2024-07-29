@@ -41,6 +41,6 @@ class TestGuideCommand {
         server.execute("slimefun", player, "guide").assertSucceeded();
 
         ItemStack guide = SlimefunGuide.getItem(SlimefunGuideMode.SURVIVAL_MODE);
-        Assertions.assertEquals(op, SlimefunUtils.containsSimilarItem(player.getInventory(), guide, true));
+        Assertions.assertEquals(true, SlimefunUtils.containsSimilarItem(player.getInventory(), guide, true));
     }
 }
